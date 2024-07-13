@@ -29,3 +29,13 @@ module "eks" {
 
   enable_cluster_creator_admin_permissions = true
 }
+
+resource "aws_secretsmanager_secret" "argocd" {
+  depends_on = [ helm_release.argoCD ]
+  name = "carlo/argocd-${var.cluster_name}"
+}
+
+resource "aws_secretsmanager_secret_version" "argocdDefaultPassword" {
+  secret_id     = aws_secretsmanager_secret.argocd.id
+  secret_string = data.kubernetes_secret.argo_default_password.data["password"]
+}
