@@ -18,6 +18,9 @@ module "eks" {
 
   eks_managed_node_groups = {
     demo = {
+      iam_role_additional_policies = {
+        loadBalancerPolicy = aws_iam_policy.lb.arn  
+      }
       ami_type       = "AL2023_x86_64_STANDARD"
       instance_types = ["t3.medium"]
 
@@ -28,6 +31,11 @@ module "eks" {
   }
 
   enable_cluster_creator_admin_permissions = true
+}
+
+
+resource "aws_iam_policy" "lb" {
+  policy = file("./misc/iam_policy.json") 
 }
 
 resource "aws_secretsmanager_secret" "argocd" {
