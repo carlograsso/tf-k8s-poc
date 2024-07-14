@@ -28,15 +28,16 @@ Included Activities:
     | --- | --- |
     | kubernetes.io/role/elb | 1 |
 - Overlay Repository Private Key stored in AWS Secrets Manager secret named “carlo/repo-key”  (forced naming convention).
+- The overlay Repository already exists
 - ArgoCD will be deployed in each cluster and will be used to deploy infrastructural resources.
 
 ## Expected Outcomes
 
-- Successful deployment of AWS EKS clusters.
+- Successful deployment of multiple AWS EKS clusters.
 - Installation of ArgoCD in each cluster.
 - Deployment of Helm charts across the clusters.
 - Public exposure of the services defined in the Helm charts.
-- Accessible ArgoCD dashboard through the public internet.
+- Accessible ArgoCD dashboards through the public internet.
 
 # Architecture
 
