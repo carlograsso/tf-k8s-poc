@@ -28,3 +28,13 @@ resource "kubernetes_secret" "repo-key" {
     sshPrivateKey = data.aws_secretsmanager_secret_version.repo_key.secret_string
   }
 }
+
+resource "kubectl_manifest" "argoAppProject" {
+  depends_on = [ helm_release.argoCD ]
+  yaml_body = templatefile("./misc/AppProject.tpl", { clusterName = var.cluster_name })
+}
+
+resource "kubectl_manifest" "argoApplicationSet" {
+  depends_on = [ kubectl_manifest.argoAppProject ]
+  yaml_body = templatefile("./misc/ApplicationSet.tpl", { clusterName = var.cluster_name })
+}
