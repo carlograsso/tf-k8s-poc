@@ -7,4 +7,10 @@ terraform {
     profile = "poc"
     region = "eu-south-1"
   }
+  required_providers {
+    kubectl = {
+      source  = "gavinbunney/kubectl"
+      version = ">= 1.7.0"
+    }
+  }
 }
