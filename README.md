@@ -4,9 +4,15 @@
 
 This document outlines a Proof of Concept for setting up a multi-cluster Kubernetes environment using Terraform and Helm. The objective is to deploy Helm charts across multiple AWS EKS clusters and expose the services to the public internet, leveraging ArgoCD for continuous deployment.
 
+# Audience
+- Infrastructure team
+- Risk Management Team
+- Infrastructure and Operations Managers
+- Chief Technology Officer (CTO)
+
 # Scope
 
-The goal is to define a Terraform setup that allows Helm chart deployment in a multi-cluster Kubernetes setup and to expose the services defined in those charts to the public internet.
+Define a Terraform setup that allows Helm chart deployment in a multi-cluster Kubernetes setup and to expose the services defined in those charts to the public internet.
 
 Included Activities:
 
@@ -15,6 +21,14 @@ Included Activities:
 - ArgoCD Helm chart installation.
 - Deploy infrastructure overlay with ArgoCD.
 - Expose ArgoCD GUI to the public internet.
+
+# Benefits
+Implementing an automated approach to deploy and manage Kubernetes clusters using Infrastructure as Code (IaC) and the GitOps workflow offers several advantages:
+
+- Reduced Provisioning Time and Effort: Automation significantly decreases the time and effort required by the infrastructure team to provision and configure new clusters.
+- Minimized Risk of Human Error: Automated processes reduce the potential for errors caused by manual intervention, enhancing the reliability and consistency of the deployments.
+- Increased Efficiency Across the Infrastructure Lifecycle: Automation streamlines the entire infrastructure lifecycle, from initial provisioning to ongoing maintenance and scaling, leading to greater operational efficiency.
+- Enhanced Security: Automation and IaC ensure that security best practices are consistently applied, reducing the risk of misconfigurations and vulnerabilities.
 
 ## Assumptions and Prerequisites
 
